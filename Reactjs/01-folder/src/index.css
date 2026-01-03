@@ -1,0 +1,29 @@
+/* Basic CSS Boilerplate */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #111;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
