@@ -1,17 +1,19 @@
 import React from 'react'
-
+import Card from './components/card.jsx'
+import Nav from './components/Nav.jsx'
 const App = () => {
   return (
-   <>
-   <div className='card'>
-    <h1>shreeman</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, dignissimos.</p>
+   <div>
+    <Nav /> 
+    <Nav /> 
+    <Nav /> 
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
    </div>
-   <div className='card'>
-    <h1>shreeman</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, dignissimos.</p>
-   </div>
-   </>
   )
 }
 
