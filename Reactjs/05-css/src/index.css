@@ -1,0 +1,38 @@
+/* Basic CSS Boilerplate */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn{
+  padding : 10px 20px;
+  background-color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  width: fit-content;
+  margin:  20px ;
+  border: none;
+}
+.header h1{
+  background-color: red;
+}
