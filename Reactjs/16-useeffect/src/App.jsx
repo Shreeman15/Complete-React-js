@@ -1,36 +1,21 @@
 import React, { useEffect, useState } from 'react'
-// useEffect 
+
 const App = () => {
-
-  const [first, setfirst] = useState(0)
-  const [second, setsecond] = useState(0)
-  
+  const [num, setnum] = useState(0)
+  const [num2, setnum2] = useState(0)
   useEffect(() => {
-    console.log("from this first : "+first);
+    console.log("useEffect is running....");
     
-  },[first])
-
-  useEffect(() => {
-    console.log("from the second : "+second);
-  },[second])
-
+  },[num])
   return (
-    <div className='w-full min-h-screen p-10 bg-gray-900 flex flex-col content-between gap-4 flex-wrap'>
-      <h1 className='text-white'>{first}</h1>
-      <h1 className='text-white'>{second}</h1>
-      <button onClick={() => {
-        setfirst(prev => prev + 1)
-      }}
-       className='bg-gray-800 px-8 py-4 rounded cursor-pointer active:scale-95 text-white hover:bg-gray-700'>
-        Click first
-        </button>
-      
-      <button onClick={() => {
-        setsecond(prev => prev + 1)
-      }} 
-      className='bg-gray-800 px-8 py-4 rounded cursor-pointer active:scale-95 text-white hover:bg-gray-700'>
-        Click second
-        </button>
+    <div className='min-h-screen h-full w-full bg-gray-900 flex flex-col flex-wrap content-between p-10'>
+      <h1 className='text-white p-2'>{num}</h1>
+      <h1 className='text-white p-2'>{num2}</h1>
+      <button onMouseEnter={() => {
+        setnum(prev => prev + 1)
+      }} onMouseLeave={() => {
+        setnum2(prev => prev + 10)
+      }} className='bg-blue-950 text-white rounded py-2 px-8 hover:bg-blue-900 cursor-pointer'>Click</button>
     </div>
   )
 }
