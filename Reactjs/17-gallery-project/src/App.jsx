@@ -1,28 +1,25 @@
 import React, { useEffect, useState } from 'react'
+import Card from './Components/Card'
 import axios from 'axios'
 const App = () => {
   const [Data, setData] = useState([])
+  const [index, setindex] = useState(1)
   
   const userData = async() => {
-   const userdata = await axios.get("https://picsum.photos/v2/list?page=3&limit=10")
+   const userdata = await axios.get(`https://picsum.photos/v2/list?page=${index}&limit=10`)
    setData(userdata.data)
    console.log(userdata.data);
  }
 
  useEffect(function(){
   userData()
- },[])
+ },[index])
 
- let printUserData = <p className="text-white">No User Available</p>
+ let printUserData = <p className="text-gray-300 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-semibold" >Loading......</p>
  if(Data.length > 0){
   printUserData = Data.map(function(elem,idx){
     return <div key={idx} className='text-white'>
-      <a href={elem.url} target='_blank'>
-        <div className='h-64 w-64 overflow-hidden font-bold bg-gray-900 rounded m-1'>
-          <img src={elem.download_url} className='h-full object-cover w-full'/>
-        </div>
-          <h3>{elem.author}</h3>
-      </a>
+       <Card elem={elem}/>
     </div>
   })
  }
@@ -30,8 +27,22 @@ const App = () => {
   return (
     <div
      className= 'h-screen bg-black overflow-auto p-5'>
+     
       <div className='flex gap-4 flex-wrap'>
         {printUserData}
+      </div>
+      <div className='flex justify-center items-center gap-6 p-10'>
+        <button onClick={() => {
+         if(index > 1){
+          setindex(index - 1)
+          setData([])
+         }
+        }} className='bg-amber-400 px-4 py-2 rounded cursor-pointer font-semibold hover:bg-amber-300 active:scale-95'>Prev</button>
+        <h4 className='text-white'>Page {index}</h4>
+        <button onClick={() => {
+        setindex(index + 1)
+        setData([])
+        }} className='bg-amber-400 px-4 py-2 rounded cursor-pointer font-semibold hover:bg-amber-300 active:scale-95'>Next</button>
       </div>
     </div>
   )
