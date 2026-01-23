@@ -3,7 +3,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import { Route, Routes } from 'react-router-dom'
-
+import About from './pages/About'
+import Contact from './pages/Contact'
 const App = () => {
   return (
     <div className='h-screen bg-black text-white '>
