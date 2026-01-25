@@ -7,24 +7,33 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Product from './pages/Product'
-
 import Women from './pages/Women'
 import Man from './pages/Man'
+
 const App = () => {
   return (
-    <div className='h-screen bg-black text-white '>
-      <Navbar />
-      <Routes>
-        <Route path = '/' element = {<Home />} />
-        <Route path = '/About' element = {<About />} />
-        <Route path = '/Contact' element = {<Contact />} />
-        <Route path = '/Product' element = {<Product />} />
-        <Route path = '/Product/Man' element = {<Man />} />
-        <Route path = '/Product/Women' element = {<Women />} />
-        <Route path = '*' element = {<NotFound />} />
+    <div className="min-h-screen bg-black text-white flex flex-col">
 
-      </Routes>
+      <Navbar />
+
+      <div className="grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+
+          {/* Parent Route */}
+          <Route path="/Product" element={<Product />}>
+            <Route path="Man" element={<Man />} />
+            <Route path="Women" element={<Women />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+
       <Footer />
+
     </div>
   )
 }
