@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 const Nav2 = (props) => {
+  console.log(props);
+  console.log(props.children[0]);
   
   return (
     <div>
@@ -10,6 +12,8 @@ const Nav2 = (props) => {
         <h4>About</h4>
         <h4>Contect</h4>
         <h4>{props.theme}</h4>
+        {props.children[0]}
+        {props.children[1]}
      </div>
     </div>
   )
